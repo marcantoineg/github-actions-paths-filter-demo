@@ -7,5 +7,9 @@ runs:
       - name: setup rust environment
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: "1.25.2"
+          toolchain: stable
+
+      - name: run rust tests
+        shell: bash
+        working-directory: ./rust-app
         run: cargo test

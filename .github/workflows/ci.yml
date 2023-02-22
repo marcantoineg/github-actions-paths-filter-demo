@@ -1,12 +1,10 @@
 name: CI
 
 on:
-  # Trigger the workflow on push only for the master branch
   push:
     branches:
       - master
 
-  # Trigger the workflow on any pull requests
   pull_request:
     branches:
       - "**"
@@ -22,8 +20,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        # with:
-        #   ssh-key: ${{ secrets.MIREGO_GITHUB_SSH_PRIVATE_KEY }}
 
       - id: is-dirty
         uses: dorny/paths-filter@v2
@@ -46,8 +42,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        # with:
-        #   ssh-key: ${{ secrets.MIREGO_GITHUB_SSH_PRIVATE_KEY }}
 
       - uses: ./.github/actions/test-go
 
@@ -58,8 +52,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        # with:
-        #   ssh-key: ${{ secrets.MIREGO_GITHUB_SSH_PRIVATE_KEY }}
 
       - uses: ./.github/actions/test-ruby
 
@@ -70,7 +62,5 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        # with:
-        #   ssh-key: ${{ secrets.MIREGO_GITHUB_SSH_PRIVATE_KEY }}
 
       - uses: ./.github/actions/test-rust
