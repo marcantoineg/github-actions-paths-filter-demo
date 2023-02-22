@@ -1,0 +1,16 @@
+name: Test Ruby
+description: tests ruby-app
+
+runs:
+  using: composite
+  steps:
+    - name: setup go environment
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "2.7.5"
+        bundler-cache: true
+
+    - name: run ruby tests
+      shell: bash
+      working-directory: ./ruby-app
+      run: ruby app_test.rb

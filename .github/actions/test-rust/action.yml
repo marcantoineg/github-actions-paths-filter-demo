@@ -1,0 +1,11 @@
+name: Test Rust
+description: tests rust-app
+
+runs:
+  using: composite
+  steps:
+      - name: setup rust environment
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: "1.25.2"
+        run: cargo test
