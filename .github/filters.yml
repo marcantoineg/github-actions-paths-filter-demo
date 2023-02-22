@@ -1,6 +1,11 @@
+data: &data
+  - "super-important-data.txt" 
 go:
+  - *data
   - "**/*.go"
 ruby:
+  - *data
   - "**/*.rb"
 rust:
+  - *data
   - "**/*.rs"
